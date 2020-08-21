@@ -516,7 +516,8 @@ class Resolver {
             PHPTag: 0,
             namespace: null,
             useStatement: null,
-            class: null
+            class: null,
+            declare: null
         };
 
         for (let line = 0; line < this.activeEditor().document.lineCount; line++) {
@@ -528,7 +529,7 @@ class Resolver {
 
             // break if all declarations were found.
             if (declarationLines.PHPTag && declarationLines.namespace &&
-                declarationLines.useStatement && declarationLines.class) {
+                declarationLines.useStatement && declarationLines.class && declarationLines.declare) {
                 break;
             }
 
@@ -541,6 +542,8 @@ class Resolver {
                 declarationLines.useStatement = line + 1;
             } else if (/(class|trait|interface)\s+\w+/.test(text)) {
                 declarationLines.class = line + 1;
+            } else if (text.startsWith('declare ')) {
+                declarationLines.declare = line + 1;
             }
         }
 
@@ -639,14 +642,15 @@ class Resolver {
                 return currentPath.split(psr4[namespaceBase])[1];
             }).concat(Object.keys(psr4))[0];
 
-            let baseDir = psr4[namespaceBase];
+            let baseDir = psr4[namespaceBase].replace(/\.\//, '');
 
             namespaceBase = namespaceBase.replace(/\\$/, '');
 
             let namespace = currentPath.split(baseDir);
+            let index = namespace.length - 1;
 
-            if (namespace[1]) {
-                namespace = namespace[1]
+            if (namespace[index]) {
+                namespace = namespace[index]
                 namespace = namespace.replace(/\//g, '\\');
                 namespace = namespace.replace(/^\\/, '');
                 namespace = namespaceBase + '\\' + namespace;
@@ -654,7 +658,7 @@ class Resolver {
                 namespace = namespaceBase;
             }
 
-            namespace = 'namespace ' + namespace + ';' + "\n"
+            namespace = "namespace " + namespace + ';' + "\n"
 
             let declarationLines;
 
@@ -666,6 +670,10 @@ class Resolver {
 
             if (declarationLines.namespace !== null) {
                 this.replaceNamespaceStatement(namespace, declarationLines.namespace);
+            } else if (declarationLines.declare !== null) {
+                this.activeEditor().edit(textEdit => {
+                    textEdit.insert(new vscode.Position(declarationLines.declare, 0), "\n" + namespace);
+                });
             } else {
                 this.activeEditor().edit(textEdit => {
                     textEdit.insert(new vscode.Position(1, 0), namespace);
