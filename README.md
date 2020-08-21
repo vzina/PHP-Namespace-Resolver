@@ -1,8 +1,4 @@
-# PHP Namespace Resolver
-
-[![Latest Release](https://vsmarketplacebadge.apphb.com/version-short/MehediDracula.php-namespace-resolver.svg
-)](https://marketplace.visualstudio.com/items?itemName=MehediDracula.php-namespace-resolver) [![Installs](https://vsmarketplacebadge.apphb.com/installs-short/MehediDracula.php-namespace-resolver.svg
-)](https://marketplace.visualstudio.com/items?itemName=MehediDracula.php-namespace-resolver) [![Rating](https://vsmarketplacebadge.apphb.com/rating-short/MehediDracula.php-namespace-resolver.svg)](https://marketplace.visualstudio.com/items?itemName=MehediDracula.php-namespace-resolver#review-details)
+# PHP Ns Resolver
 
 PHP Namespace Resolver can import and expand your class. You can also sort your imported classes by line length or in alphabetical order.
 
@@ -108,9 +104,3 @@ You can override these default keybindings on your `keybindings.json`.
     }
 ]
 ```
-
-## License
-
-[MIT](LICENSE) License.
-
-Copyright (c) 2017 Mehedi Hassan

@@ -1,6 +1,6 @@
 {
     "name": "php-ns-resolver-test",
-    "displayName": "PHP Namespace Resolver",
+    "displayName": "PHP Ns Resolver",
     "description": "Import and expand php namespaces",
     "version": "1.0.0",
     "publisher": "vzina",
