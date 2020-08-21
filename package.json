@@ -1,10 +1,10 @@
 {
-    "name": "php-namespace-resolver",
+    "name": "php-ns-resolver-test",
     "displayName": "PHP Namespace Resolver",
     "description": "Import and expand php namespaces",
-    "version": "1.1.8",
-    "publisher": "MehediDracula",
-    "author": "Mehedi Hassan <MehediDracula@gmail.com>",
+    "version": "1.0.0",
+    "publisher": "vzina",
+    "author": "vzina <vzina0614@gmail.com>",
     "license": "SEE LICENSE IN LICENSE",
     "engines": {
         "vscode": "^1.15.0"
@@ -203,10 +203,10 @@
     },
     "repository": {
         "type": "git",
-        "url": "https://github.com/MehediDracula/PHP-Namespace-Resolver"
+        "url": "https://github.com/vzina/PHP-Namespace-Resolver"
     },
     "bugs": {
-        "url": "https://github.com/MehediDracula/PHP-Namespace-Resolver/issues"
+        "url": "https://github.com/vzina/PHP-Namespace-Resolver/issues"
     },
     "scripts": {
         "postinstall": "node ./node_modules/vscode/bin/install"
