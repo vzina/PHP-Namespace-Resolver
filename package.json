@@ -2,7 +2,7 @@
     "name": "php-ns-resolver-test",
     "displayName": "PHP Ns Resolver",
     "description": "Import and expand php namespaces",
-    "version": "1.0.0",
+    "version": "1.0.1",
     "publisher": "vzina",
     "author": "vzina <vzina0614@gmail.com>",
     "license": "SEE LICENSE IN LICENSE",
