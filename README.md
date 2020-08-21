@@ -109,10 +109,6 @@ You can override these default keybindings on your `keybindings.json`.
 ]
 ```
 
-## Author
-
-- [@MehediDracula](https://twitter.com/MehediDracula)
-
 ## License
 
 [MIT](LICENSE) License.
